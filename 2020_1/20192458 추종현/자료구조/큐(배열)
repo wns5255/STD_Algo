@@ -43,7 +43,7 @@ public:
   }
   T Pop(){
     if(!isEmpty())
-      return values[rear--];
+      return values[++front];
     else{
       cout << "queue is Empty\n";
       return -1;
@@ -51,7 +51,7 @@ public:
   }
   T Front(){
     if(!isEmpty())
-      return values[rear];
+      return values[front];
     else{
       cout << "queue is Empty\n";
       return -1;
