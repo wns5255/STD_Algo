@@ -43,7 +43,7 @@ public:
   }
   T Pop(){
     if(!isEmpty())
-      return values[++front];
+      return values[(++front)%size];
     else{
       cout << "queue is Empty\n";
       return -1;
