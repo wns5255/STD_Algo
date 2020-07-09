@@ -1,0 +1,59 @@
+#include<iostream>
+using namespace std;
+class Node{
+friend class Queue;
+private:
+  int value;
+  Node* next;
+public:
+  Node(const int v, Node * ptr):value(v),next(ptr){}
+};
+class Queue{
+private:
+  Node* front;
+  Node* rear;
+  int size;
+public:
+  Queue(){
+    front = rear = new Node(0,NULL);
+    size=0;
+  }
+  void Push(const int v){
+    Node* newNode = new Node(v,front);
+    rear->next = newNode;
+    rear = newNode;
+    size++;
+  }
+  int Pop(){
+    if(!isEmpty()){
+      Node* removal =front->next;
+      int tmp = removal->value;
+      front->next = front->next->next;
+      delete removal;
+      size--; 
+      return tmp;
+    }
+    else{
+      cout << "queue is Empty!\n";
+      return -1;
+    }
+  }
+  int Front(){
+    int tmp = front->next->value;
+    front = front->next->next;
+    return tmp;
+  }
+  bool isEmpty(){
+    return size==0 ? true : false ;
+  }
+  ~Queue(){
+    while(size!=0){
+      cout << Pop() << endl;
+    }
+  }
+};
+int main(){
+  Queue a;
+  for(int i=1; i<=10; i++)
+    a.Push(i);
+}
