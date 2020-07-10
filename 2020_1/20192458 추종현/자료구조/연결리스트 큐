@@ -39,9 +39,7 @@ public:
     }
   }
   int Front(){
-    int tmp = front->next->value;
-    front = front->next->next;
-    return tmp;
+    return front->next->value;
   }
   bool isEmpty(){
     return size==0 ? true : false ;
