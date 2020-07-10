@@ -34,7 +34,7 @@ public:
         size--;
         return tmp;
         }
-      else{
+      else{ //size 1일때
         Node* removal =front->next;
         int tmp = removal->value;
         rear = front;
