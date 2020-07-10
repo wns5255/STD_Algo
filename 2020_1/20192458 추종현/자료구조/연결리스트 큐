@@ -25,13 +25,24 @@ public:
     size++;
   }
   int Pop(){
-    if(!isEmpty()){
-      Node* removal =front->next;
-      int tmp = removal->value;
-      front->next = front->next->next;
-      delete removal;
-      size--; 
-      return tmp;
+    if(!isEmpty()){ //size가 1일때랑 2이상일때 구분해야함
+      if(size>=2){
+        Node* removal =front->next;
+        int tmp = removal->value;
+        front->next = front->next->next;
+        delete removal;
+        size--;
+        return tmp;
+        }
+      else{
+        Node* removal =front->next;
+        int tmp = removal->value;
+        rear = front;
+        front->next = NULL;
+        delete removal;
+        size--;
+        return tmp;
+      }
     }
     else{
       cout << "queue is Empty!\n";
