@@ -27,3 +27,13 @@ void BestComImpl::SimpleFunc(void)
     PrettyFunc();
     ProgComImpl::SimpleFunc();
 }
+
+void BestComImpl::PrettyFunc(void)
+{
+    std::cout<<"So Pretty!!"<<std::endl;
+}
+
+void ProgComImpl::SimpleFunc(void)
+{
+    std::cout<<"ProgCom이 정의한 함수"<<std::endl;
+}
