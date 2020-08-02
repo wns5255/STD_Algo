@@ -1,6 +1,8 @@
 #ifndef __POINT_H_
 #define __POINT_H_
 
+#define __POINT_H_
+
 class Point
 {
 private:
