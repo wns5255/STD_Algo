@@ -1,3 +1,4 @@
+//if문_시험 성적 구하기
 #include <iostream>
 using namespace std;
 
