@@ -7,32 +7,32 @@ using namespace std;
 class Person {
 private:
 	int total;
-	int count;  // ÀÌ¿ëÇÑ ³îÀÌ±â±¸ °³¼ö
-	char *name;  // ´ëÇ¥ÀÚ ÀÌ¸§
-	int n;  // ÀÎ¿ø
+	int count;  // ì´ìš©í•œ ë†€ì´ê¸°êµ¬ ê°œìˆ˜
+	char *name;  // ëŒ€í‘œì ì´ë¦„
+	int n;  // ì¸ì›
 	int tall[20];
-	bool pass;//Å°Á¦ÇÑ¿¡ °É¸®´ÂÁö ¾Ê°É¸®´ÂÁö ÆÇ´ÜÇÏ´Â º¯¼ö
+	bool pass;//í‚¤ì œí•œì— ê±¸ë¦¬ëŠ”ì§€ ì•Šê±¸ë¦¬ëŠ”ì§€ íŒë‹¨í•˜ëŠ” ë³€ìˆ˜
 	static int people;
 public:
-	Person(const char* _name, int num) : total(0), count(0), pass(1)//const»ç¿ë,Æ÷ÀÎÅÍ
+	Person(const char* _name, int num = 1) : total(0), count(0), pass(1)//constì‚¬ìš©,í¬ì¸í„°
 	{
 		int len = strlen(_name) + 1;
 		name = new char[len];
 		strcpy(name, _name);
 		this->n = num;
 		people += n;
-		cout << "È¯¿µÇÕ´Ï´Ù~" << endl;
-		cout << "°áÁ¦´Â ³îÀÌ±â±¸ Å¾½ÂÈÄ ÇÑ¹ø¿¡ °è»êÇÏ½Ã¸éµË´Ï´Ù." << endl;
-		cout << "ÀÎ¿ø ¼ö ¸¸Å­ Å°¸¦ Àû¾î ÁÖ½Ê½Ã¿ä" << endl;
+		cout << "í™˜ì˜í•©ë‹ˆë‹¤~" << endl;
+		cout << "ê²°ì œëŠ” ë†€ì´ê¸°êµ¬ íƒ‘ìŠ¹í›„ í•œë²ˆì— ê³„ì‚°í•˜ì‹œë©´ë©ë‹ˆë‹¤." << endl;
+		cout << "ì¸ì› ìˆ˜ ë§Œí¼ í‚¤ë¥¼ ì ì–´ ì£¼ì‹­ì‹œìš”" << endl;
 		for (int k = 0; k < n; k++)
 		{
 			cin >> tall[k];
 		}
-		cout << "Áñ°Å¿î ½Ã°£ º¸³»¼¼¿ä" << endl;
+		cout << "ì¦ê±°ìš´ ì‹œê°„ ë³´ë‚´ì„¸ìš”" << endl;
 	}
 	explicit Person(const Person& p) : n(p.n), total(p.total), count(p.count), pass(p.pass)
 	{
-		name = new char[strlen(p.name) + 1];  // ±íÀº º¹»ç
+		name = new char[strlen(p.name) + 1];  // ê¹Šì€ ë³µì‚¬
 		strcpy(this->name, p.name);
 
 	}
@@ -40,16 +40,16 @@ public:
 		delete[] tall;
 	}
 
-	void RideViking(Viking& v) {   //call by reference»ç¿ë
-		cout << name << "´Ô, ";
+	void RideViking(Viking& v) {   //call by referenceì‚¬ìš©
+		cout << name << "ë‹˜, ";
 		if (v.GetSeat() <= 0) {
 			v.SetSeat(20);
-			cout << "³îÀÌ±â±¸°¡ ¸¸¼®ÀÔ´Ï´Ù. ´ë±â½Ã°£ " << v.GetTime() << "ºĞÀÔ´Ï´Ù." << endl;
+			cout << "ë†€ì´ê¸°êµ¬ê°€ ë§Œì„ì…ë‹ˆë‹¤. ëŒ€ê¸°ì‹œê°„ " << v.GetTime() << "ë¶„ì…ë‹ˆë‹¤." << endl;
 		}
 		else {
-			v.SetSeat(this->n);  //thisÆ÷ÀÎÅÍ »ç¿ë
+			v.SetSeat(this->n);  //thisí¬ì¸í„° ì‚¬ìš©
 			if (v.GetSeat() < 0)
-				cout << "³îÀÌ±â±¸ ¼ö¿ë ÀÎ¿ø ÃÊ°úÀÔ´Ï´Ù." << n + v.GetSeat() << "¸í¸¸ Å¾½Â °¡´ÉÇÕ´Ï´Ù." << endl;
+				cout << "ë†€ì´ê¸°êµ¬ ìˆ˜ìš© ì¸ì› ì´ˆê³¼ì…ë‹ˆë‹¤." << n + v.GetSeat() << "ëª…ë§Œ íƒ‘ìŠ¹ ê°€ëŠ¥í•©ë‹ˆë‹¤." << endl;
 			else
 			{
 				for (int k = 0; k < n; k++)
@@ -61,29 +61,29 @@ public:
 				}
 				if (pass == true)
 				{
-					cout << "ÀÎ¿ø " << n << "¸í ¹ÙÀÌÅ· Å¾½ÂÇÏ¼Ì½À´Ï´Ù." << endl;
+					cout << "ì¸ì› " << n << "ëª… ë°”ì´í‚¹ íƒ‘ìŠ¹í•˜ì…¨ìŠµë‹ˆë‹¤." << endl;
 					total += (v.GetCost()) * this->n;
 					count++;
 				}
 				else if (pass == false)
 				{
-					cout << "ÀÌ¿ëÇÏ½Ç ¼Õ´ÔÁß¿¡ Å° Á¦ÇÑ¿¡ °É¸®´Â ¼Õ´ÔÀÌ °è½Ê´Ï´Ù ´Ù¸¥ ³îÀÌ±â±¸¸¦ ÀÌ¿ëÇÏ¿© ÁÖ½Ê½Ã¿À" << endl;
+					cout << "ì´ìš©í•˜ì‹¤ ì†ë‹˜ì¤‘ì— í‚¤ ì œí•œì— ê±¸ë¦¬ëŠ” ì†ë‹˜ì´ ê³„ì‹­ë‹ˆë‹¤ ë‹¤ë¥¸ ë†€ì´ê¸°êµ¬ë¥¼ ì´ìš©í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤" << endl;
 				}
 			}
 		}
 	}
 
 	void RideBumper(BumperCar& b) {
-		cout << name << "´Ô, ";
+		cout << name << "ë‹˜, ";
 		if (b.GetSeat() <= 0) {
 			b.SetSeat(20);
-			cout << "³îÀÌ±â±¸°¡ ¸¸¼®ÀÔ´Ï´Ù. ´ë±â½Ã°£ " << b.GetTime() << "ºĞÀÔ´Ï´Ù." << endl;
+			cout << "ë†€ì´ê¸°êµ¬ê°€ ë§Œì„ì…ë‹ˆë‹¤. ëŒ€ê¸°ì‹œê°„ " << b.GetTime() << "ë¶„ì…ë‹ˆë‹¤." << endl;
 		}
 		else {
-			b.SetSeat(this->n);  //thisÆ÷ÀÎÅÍ »ç¿ë
+			b.SetSeat(this->n);  //thisí¬ì¸í„° ì‚¬ìš©
 			if (b.GetSeat() < 0)
 			{
-				cout << "³îÀÌ±â±¸ ¼ö¿ë ÀÎ¿ø ÃÊ°úÀÔ´Ï´Ù." << n + b.GetSeat() << "¸í¸¸ Å¾½Â °¡´ÉÇÕ´Ï´Ù." << endl;
+				cout << "ë†€ì´ê¸°êµ¬ ìˆ˜ìš© ì¸ì› ì´ˆê³¼ì…ë‹ˆë‹¤." << n + b.GetSeat() << "ëª…ë§Œ íƒ‘ìŠ¹ ê°€ëŠ¥í•©ë‹ˆë‹¤." << endl;
 			}
 			else
 			{
@@ -96,27 +96,27 @@ public:
 				}
 				if (pass == true)
 				{
-					cout << "ÀÎ¿ø " << n << "¸í ¹üÆÛÄ« Å¾½ÂÇÏ¼Ì½À´Ï´Ù." << endl;
+					cout << "ì¸ì› " << n << "ëª… ë²”í¼ì¹´ íƒ‘ìŠ¹í•˜ì…¨ìŠµë‹ˆë‹¤." << endl;
 					total += (b.GetCost()) * this->n;
 					count++;
 				}
 				else if (pass == false)
 				{
-					cout << "ÀÌ¿ëÇÏ½Ç ¼Õ´ÔÁß¿¡ Å° Á¦ÇÑ¿¡ °É¸®´Â ¼Õ´ÔÀÌ °è½Ê´Ï´Ù ´Ù¸¥ ³îÀÌ±â±¸¸¦ ÀÌ¿ëÇÏ¿© ÁÖ½Ê½Ã¿À" << endl;
+					cout << "ì´ìš©í•˜ì‹¤ ì†ë‹˜ì¤‘ì— í‚¤ ì œí•œì— ê±¸ë¦¬ëŠ” ì†ë‹˜ì´ ê³„ì‹­ë‹ˆë‹¤ ë‹¤ë¥¸ ë†€ì´ê¸°êµ¬ë¥¼ ì´ìš©í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤" << endl;
 				}
 			}
 		}
 	}
 	void RideT(T& t) {
-		cout << name << "´Ô, ";
+		cout << name << "ë‹˜, ";
 		if (t.GetSeat() <= 0) {
 			t.SetSeat(20);
-			cout << "³îÀÌ±â±¸°¡ ¸¸¼®ÀÔ´Ï´Ù. ´ë±â½Ã°£ " << t.GetTime() << "ºĞÀÔ´Ï´Ù." << endl;
+			cout << "ë†€ì´ê¸°êµ¬ê°€ ë§Œì„ì…ë‹ˆë‹¤. ëŒ€ê¸°ì‹œê°„ " << t.GetTime() << "ë¶„ì…ë‹ˆë‹¤." << endl;
 		}
 		else {
-			t.SetSeat(this->n);  //thisÆ÷ÀÎÅÍ »ç¿ë
+			t.SetSeat(this->n);  //thisí¬ì¸í„° ì‚¬ìš©
 			if (t.GetSeat() < 0)
-				cout << "³îÀÌ±â±¸ ¼ö¿ë ÀÎ¿ø ÃÊ°úÀÔ´Ï´Ù." << n + t.GetSeat() << "¸í¸¸ Å¾½Â °¡´ÉÇÕ´Ï´Ù." << endl;
+				cout << "ë†€ì´ê¸°êµ¬ ìˆ˜ìš© ì¸ì› ì´ˆê³¼ì…ë‹ˆë‹¤." << n + t.GetSeat() << "ëª…ë§Œ íƒ‘ìŠ¹ ê°€ëŠ¥í•©ë‹ˆë‹¤." << endl;
 			else
 			{
 				for (int k = 0; k < n; k++)
@@ -128,27 +128,27 @@ public:
 				}
 				if (pass == true)
 				{
-					cout << "ÀÎ¿ø " << n << "¸í Æ¼ ÀÍ½ºÇÁ·¹½º Å¾½ÂÇÏ¼Ì½À´Ï´Ù." << endl;
+					cout << "ì¸ì› " << n << "ëª… í‹° ìµìŠ¤í”„ë ˆìŠ¤ íƒ‘ìŠ¹í•˜ì…¨ìŠµë‹ˆë‹¤." << endl;
 					total += (t.GetCost()) * this->n;
 					count++;
 				}
 				else if (pass == false)
 				{
-					cout << "ÀÌ¿ëÇÏ½Ç ¼Õ´ÔÁß¿¡ Å° Á¦ÇÑ¿¡ °É¸®´Â ¼Õ´ÔÀÌ °è½Ê´Ï´Ù ´Ù¸¥ ³îÀÌ±â±¸¸¦ ÀÌ¿ëÇÏ¿© ÁÖ½Ê½Ã¿À" << endl;
+					cout << "ì´ìš©í•˜ì‹¤ ì†ë‹˜ì¤‘ì— í‚¤ ì œí•œì— ê±¸ë¦¬ëŠ” ì†ë‹˜ì´ ê³„ì‹­ë‹ˆë‹¤ ë‹¤ë¥¸ ë†€ì´ê¸°êµ¬ë¥¼ ì´ìš©í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤" << endl;
 				}
 			}
 		}
 	}
 	void RideHurricane(Hurricane& h) {
-		cout << name << "´Ô, ";
+		cout << name << "ë‹˜, ";
 		if (h.GetSeat() <= 0) {
 			h.SetSeat(20);
-			cout << "³îÀÌ±â±¸°¡ ¸¸¼®ÀÔ´Ï´Ù. ´ë±â½Ã°£ " << h.GetTime() << "ºĞÀÔ´Ï´Ù." << endl;
+			cout << "ë†€ì´ê¸°êµ¬ê°€ ë§Œì„ì…ë‹ˆë‹¤. ëŒ€ê¸°ì‹œê°„ " << h.GetTime() << "ë¶„ì…ë‹ˆë‹¤." << endl;
 		}
 		else {
-			h.SetSeat(this->n);  //thisÆ÷ÀÎÅÍ »ç¿ë
+			h.SetSeat(this->n);  //thisí¬ì¸í„° ì‚¬ìš©
 			if (h.GetSeat() < 0)
-				cout << "³îÀÌ±â±¸ ¼ö¿ë ÀÎ¿ø ÃÊ°úÀÔ´Ï´Ù." << n + h.GetSeat() << "¸í¸¸ Å¾½Â °¡´ÉÇÕ´Ï´Ù." << endl;
+				cout << "ë†€ì´ê¸°êµ¬ ìˆ˜ìš© ì¸ì› ì´ˆê³¼ì…ë‹ˆë‹¤." << n + h.GetSeat() << "ëª…ë§Œ íƒ‘ìŠ¹ ê°€ëŠ¥í•©ë‹ˆë‹¤." << endl;
 			else
 			{
 				for (int k = 0; k < n; k++)
@@ -160,27 +160,27 @@ public:
 				}
 				if (pass == true)
 				{
-					cout << "ÀÎ¿ø " << n << "¸í Çã¸®ÄÉÀÎ Å¾½ÂÇÏ¼Ì½À´Ï´Ù." << endl;
+					cout << "ì¸ì› " << n << "ëª… í—ˆë¦¬ì¼€ì¸ íƒ‘ìŠ¹í•˜ì…¨ìŠµë‹ˆë‹¤." << endl;
 					total += (h.GetCost()) * this->n;
 					count++;
 				}
 				else if (pass == false)
 				{
-					cout << "ÀÌ¿ëÇÏ½Ç ¼Õ´ÔÁß¿¡ Å° Á¦ÇÑ¿¡ °É¸®´Â ¼Õ´ÔÀÌ °è½Ê´Ï´Ù ´Ù¸¥ ³îÀÌ±â±¸¸¦ ÀÌ¿ëÇÏ¿© ÁÖ½Ê½Ã¿À" << endl;
+					cout << "ì´ìš©í•˜ì‹¤ ì†ë‹˜ì¤‘ì— í‚¤ ì œí•œì— ê±¸ë¦¬ëŠ” ì†ë‹˜ì´ ê³„ì‹­ë‹ˆë‹¤ ë‹¤ë¥¸ ë†€ì´ê¸°êµ¬ë¥¼ ì´ìš©í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤" << endl;
 				}
 			}
 		}
 	}
 	void RideAmazon(Amazon& a) {
-		cout << name << "´Ô, ";
+		cout << name << "ë‹˜, ";
 		if (a.GetSeat() <= 0) {
 			a.SetSeat(20);
-			cout << "³îÀÌ±â±¸°¡ ¸¸¼®ÀÔ´Ï´Ù. ´ë±â½Ã°£ " << a.GetTime() << "ºĞÀÔ´Ï´Ù." << endl;
+			cout << "ë†€ì´ê¸°êµ¬ê°€ ë§Œì„ì…ë‹ˆë‹¤. ëŒ€ê¸°ì‹œê°„ " << a.GetTime() << "ë¶„ì…ë‹ˆë‹¤." << endl;
 		}
 		else {
-			a.SetSeat(this->n);  //thisÆ÷ÀÎÅÍ »ç¿ë
+			a.SetSeat(this->n);  //thisí¬ì¸í„° ì‚¬ìš©
 			if (a.GetSeat() < 0)
-				cout << "³îÀÌ±â±¸ ¼ö¿ë ÀÎ¿ø ÃÊ°úÀÔ´Ï´Ù." << n + a.GetSeat() << "¸í¸¸ Å¾½Â °¡´ÉÇÕ´Ï´Ù." << endl;
+				cout << "ë†€ì´ê¸°êµ¬ ìˆ˜ìš© ì¸ì› ì´ˆê³¼ì…ë‹ˆë‹¤." << n + a.GetSeat() << "ëª…ë§Œ íƒ‘ìŠ¹ ê°€ëŠ¥í•©ë‹ˆë‹¤." << endl;
 			else
 			{
 				for (int k = 0; k < n; k++)
@@ -192,27 +192,27 @@ public:
 				}
 				if (pass == true)
 				{
-					cout << "ÀÎ¿ø " << n << "¸í ¾Æ¸¶Á¸ ÀÍ½ºÇÁ·¹½º Å¾½ÂÇÏ¼Ì½À´Ï´Ù." << endl;
+					cout << "ì¸ì› " << n << "ëª… ì•„ë§ˆì¡´ ìµìŠ¤í”„ë ˆìŠ¤ íƒ‘ìŠ¹í•˜ì…¨ìŠµë‹ˆë‹¤." << endl;
 					total += (a.GetCost()) * this->n;
 					count++;
 				}
 				else if (pass == false)
 				{
-					cout << "ÀÌ¿ëÇÏ½Ç ¼Õ´ÔÁß¿¡ Å° Á¦ÇÑ¿¡ °É¸®´Â ¼Õ´ÔÀÌ °è½Ê´Ï´Ù ´Ù¸¥ ³îÀÌ±â±¸¸¦ ÀÌ¿ëÇÏ¿© ÁÖ½Ê½Ã¿À" << endl;
+					cout << "ì´ìš©í•˜ì‹¤ ì†ë‹˜ì¤‘ì— í‚¤ ì œí•œì— ê±¸ë¦¬ëŠ” ì†ë‹˜ì´ ê³„ì‹­ë‹ˆë‹¤ ë‹¤ë¥¸ ë†€ì´ê¸°êµ¬ë¥¼ ì´ìš©í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤" << endl;
 				}
 			}
 		}
 	}
 	void ShowData(void) const
 	{
-		cout << name << "´Ô, ";
-		cout << "ÃÑ " << count << "°³ÀÇ ³îÀÌ±â±¸¸¦ ÀÌ¿ëÇÏ¼Ì½À´Ï´Ù." << endl;
-		cout << "°áÁ¦ ±İ¾×Àº " << total << "¿øÀÔ´Ï´Ù." << endl;
+		cout << name << "ë‹˜, ";
+		cout << "ì´ " << count << "ê°œì˜ ë†€ì´ê¸°êµ¬ë¥¼ ì´ìš©í•˜ì…¨ìŠµë‹ˆë‹¤." << endl;
+		cout << "ê²°ì œ ê¸ˆì•¡ì€ " << total << "ì›ì…ë‹ˆë‹¤." << endl;
 	}
 	void EverlandData(void) const
 	{
 		cout << endl;
-		cout << "¿À´Ã ÇöÀç±îÁö ¿¡¹ö·£µå¸¦ ÀÌ¿ëÇÑ °í°´ÀÇ ¼ö´Â " << people << "¸íÀÔ´Ï´Ù." << endl << endl;
+		cout << "ì˜¤ëŠ˜ í˜„ì¬ê¹Œì§€ ì—ë²„ëœë“œë¥¼ ì´ìš©í•œ ê³ ê°ì˜ ìˆ˜ëŠ” " << people << "ëª…ì…ë‹ˆë‹¤." << endl << endl;
 		people = 0;
 	}
 
