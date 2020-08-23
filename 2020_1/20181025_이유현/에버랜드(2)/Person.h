@@ -37,7 +37,7 @@ public:
 
 	}
 	~Person() {
-		delete[] tall;
+		delete[] name;
 	}
 
 	void RideViking(Viking& v) {   //call by reference사용
