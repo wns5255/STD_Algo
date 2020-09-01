@@ -1,16 +1,23 @@
 #include <iostream>
-#include "Client.h"
-#include "horse.h"
+#include "Ride.h"
+#include "Menu.h"
+#include "Person.h"
+#include "Ticket.h"
+
 using namespace std;
 
-int main()
+int main(void)
 {
-    Client client(1000000, 5, 10);
-    client.PAY();
-    client.TAKE();
-    //Client client1 = client;
-    //client1.PAY();
-    //client1.TAKE();
-    return 0;
-}
+	Person person;
+	Ride ride;
+	Menu menu;
 
+	person.PAY();
+	ride.Check();
+	person.TAKE();
+
+	menu.ShowMenu();
+	menu.Calculate("GongChar", 2);
+
+	return 0;
+}
